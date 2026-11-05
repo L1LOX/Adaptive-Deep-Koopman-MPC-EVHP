@@ -1,13 +1,13 @@
-# Adaptive Deep Koopman MPC — EVHP 数据包
+# Adaptive Deep Koopman MPC — EVHP Dataset
 
-本仓库保存论文 *Adaptive Deep Koopman Model Predictive Control for Aortic Pressure Regulation in Ex Vivo Heart Perfusion* 的压力与流量时序 CSV 数据。
+This repository contains pressure and flow time-series data in CSV format for the paper *Adaptive Deep Koopman Model Predictive Control for Aortic Pressure Regulation in Ex Vivo Heart Perfusion*.
 
-## 数据目录
+## Data directories
 
-- `experiment/`：压力预测验证与阶梯压力实验数据。
-- `simulation/`：多步预测、参考值跟踪、阻力扰动及控制器比较数据。
+- `experiment/`: experimental data for pressure prediction validation and stepwise pressure regulation.
+- `simulation/`: simulation data for multistep prediction, reference tracking, resistance disturbances, and controller comparisons.
 
-| 文件 | 数据行数（不含表头） | 字节数 |
+| File | Data rows (excluding header) | Size (bytes) |
 | --- | ---: | ---: |
 | `experiment/pressure_prediction_validation.csv` | 1,242 | 27,327 |
 | `experiment/stepwise_pressure.csv` | 3,604 | 56,189 |
@@ -19,14 +19,12 @@
 | `simulation/resistance_disturbance.csv` | 1,916,928 | 74,243,105 |
 | `simulation/resistance_tracking.csv` | 3,328 | 132,349 |
 
-## 读取与校验
+## Reading and verifying the data
 
-CSV 第一行为字段名。字段后缀 `_s`、`_mmHg` 和 `_mL_s` 分别表示秒、毫米汞柱和毫升/秒；其余标识字段保留原数据值。
+The first row of each CSV file contains the column names. The suffixes `_s`, `_mmHg`, and `_mL_s` indicate seconds, millimeters of mercury, and milliliters per second, respectively. Other identifier fields retain their original values.
 
-`manifest.json` 记录每个 CSV 的字段名、数据行数、字节数和 SHA-256 校验值；`SHA256SUMS` 可用于验证文件完整性。CSV 按原始字节保存，未进行重采样、筛选或数值修改。
+`manifest.json` lists the column names, data row counts, file sizes in bytes, and SHA-256 checksums for each CSV file. `SHA256SUMS` can be used to verify file integrity. The CSV files preserve the original bytes; no resampling, filtering, or numerical modifications have been applied.
 
-本仓库当前仅包含上述时序数据，不包含模型权重、训练代码或完整复现实验环境。
+## License
 
-## 使用许可
-
-本仓库尚未指定开放使用许可证。如需使用或再分发，请联系作者。
+No open-use license has been specified for this repository. Please contact the authors regarding use or redistribution.
